@@ -121,7 +121,9 @@ function Body() {
     
     // Calculate best profit with precision handling
     const calculateBestProfit = () => {
-      const totalReturns = calculateTeamAReturns() + calculateTeamBReturns();
+      const teamAReturns = calculateTeamAReturns();
+      const teamBReturns = calculateTeamBReturns();
+      const totalReturns = teamAReturns + teamBReturns;
       return totalReturns > 0 ? Number((totalReturns - actualBetAmount).toFixed(2)) : 0;
     };
     
@@ -155,11 +157,10 @@ function Body() {
       const teamBBet = calculateTeamBBet();
       const newActualBetAmount = Number((teamABet + teamBBet).toFixed(2));
       
-      if (isFinite(newActualBetAmount) && newActualBetAmount !== actualBetAmount) {
+      if (isFinite(newActualBetAmount)) {
         setActualBetAmount(newActualBetAmount);
-        console.log("Updated actual bet amount:", newActualBetAmount);
       }
-    }, [a, b, betAmount, actualBetAmount]);
+    }, [a, b, betAmount]); // Remove actualBetAmount from dependency array to avoid circular updates
 
   return (
     <div className="container mx-auto p-6 max-w-4xl">
