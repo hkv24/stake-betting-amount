@@ -110,13 +110,13 @@ function Body() {
       return Number((teamBBet * b).toFixed(2)) || 0;
     };
     
-    // Check if returns exceed the risk threshold (2175)
+    // Check if returns exceed the risk threshold (2145)
     const isTeamAReturnsExceedingThreshold = () => {
-      return calculateTeamAReturns() > 2175;
+      return calculateTeamAReturns() > 2145;
     };
     
     const isTeamBReturnsExceedingThreshold = () => {
-      return calculateTeamBReturns() > 2175;
+      return calculateTeamBReturns() > 2145;
     };
     
     // Calculate best profit with precision handling
@@ -268,18 +268,17 @@ function Body() {
             
             {/* Team A Risk Alert */}
             {isTeamAReturnsExceedingThreshold() && (
-              <div className="mt-3 p-3 bg-amber-100 border border-amber-300 rounded-md animate-pulse">
+              <div className="mt-3 p-3 bg-indigo-100 border border-indigo-300 rounded-md animate-pulse">
                 <div className="flex items-start">
-                  <div className="bg-amber-400 p-1 rounded-full mr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-indigo-400 p-1 rounded-full mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-amber-800">High Risk Warning</h4>
-                    <p className="text-xs text-amber-700 mt-1">
-                      Your potential returns exceed ₹2,175. This increases your risk beyond controllable limits.
-                      Consider reducing your bet amount.
+                    <h4 className="text-sm font-bold text-indigo-800">High Risk Warning</h4>
+                    <p className="text-xs text-indigo-700 mt-1">
+                      Your potential returns exceed ₹2,145. Maximum Bonus amount could not be more than $25.
                     </p>
                   </div>
                 </div>
@@ -289,9 +288,9 @@ function Body() {
         </div>
 
         {/* Team B Card */}
-        <div className="card bg-gradient-to-br from-red-50 to-red-100 rounded-xl shadow-lg p-6 flex-1 border border-red-100 hover:shadow-xl transition-all duration-300">
+        <div className="card bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl shadow-lg p-6 flex-1 border border-amber-100 hover:shadow-xl transition-all duration-300">
           <div className="flex items-center mb-6">
-            <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center mr-3">
+            <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center mr-3">
               <span className="text-white font-bold">B</span>
             </div>
             <h2 className="text-2xl font-bold text-gray-800">Team B</h2>
@@ -306,7 +305,7 @@ function Body() {
               <input 
                 type="number" 
                 placeholder="Multiplier" 
-                className="input input-bordered w-full pl-10 bg-white focus:border-red-500 focus:ring focus:ring-red-200"
+                className="input input-bordered w-full pl-10 bg-white focus:border-amber-500 focus:ring focus:ring-amber-200"
                 ref={teamBInputRef}
                 defaultValue=""
               />
@@ -315,7 +314,7 @@ function Body() {
             <p className="text-xs text-gray-500 mt-2">Enter the multiplier on Team B</p>
             
             <button 
-              className="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-300"
+              className="mt-4 bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-300"
               onClick={handleBSubmit}
             >
               Enter
@@ -323,11 +322,11 @@ function Body() {
             
             {/* Team B Bet Amount Section */}
             {b > 0 && betAmount > 0 && (
-              <div className="mt-6 p-3 bg-red-100 rounded-md">
-                <h3 className="font-semibold text-red-800 mb-1">Your bet on Team B</h3>
+              <div className="mt-6 p-3 bg-amber-100 rounded-md">
+                <h3 className="font-semibold text-amber-800 mb-1">Your bet on Team B</h3>
                 <div className="flex items-center justify-between">
-                  <p className="text-lg font-bold text-red-700">₹{calculateTeamBBet().toFixed(2)}</p>
-                  <div className="bg-red-200 px-2 py-1 rounded text-xs text-red-800">
+                  <p className="text-lg font-bold text-amber-700">₹{calculateTeamBBet().toFixed(2)}</p>
+                  <div className="bg-amber-200 px-2 py-1 rounded text-xs text-amber-800">
                     {betAmount > 0 && b > 0 ? `₹${betAmount} ÷ ${b}` : '-'}
                   </div>
                 </div>
@@ -359,18 +358,17 @@ function Body() {
             
             {/* Team B Risk Alert */}
             {isTeamBReturnsExceedingThreshold() && (
-              <div className="mt-3 p-3 bg-amber-100 border border-amber-300 rounded-md animate-pulse">
+              <div className="mt-3 p-3 bg-teal-100 border border-teal-300 rounded-md animate-pulse">
                 <div className="flex items-start">
-                  <div className="bg-amber-400 p-1 rounded-full mr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-teal-400 p-1 rounded-full mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-amber-800">High Risk Warning</h4>
-                    <p className="text-xs text-amber-700 mt-1">
-                      Your potential returns exceed ₹2,175. This increases your risk beyond controllable limits.
-                      Consider reducing your bet amount.
+                    <h4 className="text-sm font-bold text-teal-800">High Risk Warning</h4>
+                    <p className="text-xs text-teal-700 mt-1">
+                      Your potential returns exceed ₹2,145. Maximum Bonus amount could not be more than $25.
                     </p>
                   </div>
                 </div>
@@ -393,7 +391,7 @@ function Body() {
               <p className="text-sm text-gray-600">Target Bet Amount</p>
               <p className="text-xl font-bold">₹{betAmount.toFixed(2)}</p>
             </div>
-            <div className="p-3 bg-red-50 rounded">
+            <div className="p-3 bg-amber-50 rounded">
               <p className="text-sm text-gray-600">Team B Multiplier</p>
               <p className="text-xl font-bold">{b || "-"}</p>
             </div>
@@ -413,8 +411,8 @@ function Body() {
                       <span className="font-medium text-blue-800">₹{calculateTeamABet().toFixed(2)}</span>
                     </div>
                     <span className="text-gray-600">+</span>
-                    <div className="bg-red-200 px-2 py-1 rounded ml-2">
-                      <span className="font-medium text-red-800">₹{calculateTeamBBet().toFixed(2)}</span>
+                    <div className="bg-amber-200 px-2 py-1 rounded ml-2">
+                      <span className="font-medium text-amber-800">₹{calculateTeamBBet().toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
